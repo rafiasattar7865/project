@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/formRootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="24dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="0dp"
+        android:background="@android:color/transparent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_form_card"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Task"
+                android:textColor="#AACB73"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"/>
+
+            <EditText
+                android:id="@+id/edtTaskTitle"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="What needs doing?"
+                android:background="@drawable/tab_pill"
+                android:paddingStart="16dp"
+                android:layout_marginBottom="12dp"
+                android:inputType="textCapSentences"/>
+
+            <EditText
+                android:id="@+id/edtTaskDescription"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:hint="Add a little note..."
+                android:gravity="top"
+                android:padding="12dp"
+                android:background="@drawable/bg_form_card"
+                android:layout_marginBottom="12dp"
+                android:textSize="14sp"
+                android:inputType="textMultiLine"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Category &amp; Importance"
+                android:textSize="12sp"
+                android:layout_marginBottom="4dp"
+                android:textColor="#AACB73"
+                android:layout_marginStart="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:id="@+id/btnCategorySelector"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="Study"
+                    android:gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:textColor="#000000"
+                    android:background="@drawable/bg_spinner" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchImportant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:layout_marginStart="12dp"
+                    app:thumbTint="#FFD4D4"
+                    app:trackTint="#AACB73"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <EditText
+                    android:id="@+id/edtTaskDate"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:hint="Date"
+                    android:background="@drawable/tab_pill"
+                    android:paddingStart="16dp"
+                    android:layout_marginEnd="6dp"
+                    android:focusable="false"
+                    android:clickable="true"/>
+
+                <EditText
+                    android:id="@+id/edtTaskTime"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:hint="Time"
+                    android:background="@drawable/tab_pill"
+                    android:paddingStart="16dp"
+                    android:layout_marginStart="6dp"
+                    android:focusable="false"
+                    android:clickable="true"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSaveTask"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Save Task"
+                android:textAllCaps="false"
+                android:background="@drawable/btn_save_style"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#FFFFE8">
+
+    <LinearLayout
+        android:id="@+id/tabContainer"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button android:id="@+id/tabTasks" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:text="Tasks" android:background="@drawable/tab_pill" android:textColor="#000000"/>
+        <Button android:id="@+id/tabNotes" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:text="Notes" android:background="@drawable/tab_pill" android:textColor="#000000" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"/>
+        <Button android:id="@+id/tabEvents" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:text="Events" android:background="@drawable/tab_pill" android:textColor="#000000"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMain"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabContainer" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewTasksTab"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/tabContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/txtEmptyPlaceholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No tasks! Wohoo!"
+        android:textSize="22sp"
+        android:textColor="#AACB73"
+        android:fontFamily="@font/cute_apricot"
+        android:gravity="center"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/tabContainer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewNotesTab"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/tabContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewEventsTab"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/tabContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fabContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="20dp"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <ImageView
+            android:id="@+id/btnAdd"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/ic_add"
+            android:background="@drawable/fab_main_with_shadow"
+            android:elevation="0dp"
+            android:translationZ="5dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnTaskWrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/btnAdd"
+            app:layout_constraintEnd_toEndOf="@id/btnAdd"
+            app:layout_constraintStart_toStartOf="@id/btnAdd"
+            app:layout_constraintTop_toTopOf="@id/btnAdd">
+
+            <ImageView
+                android:id="@+id/btnAddTaskMini"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/fab_mini"
+                android:src="@drawable/ic_task"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="16dp"
+                android:elevation="30dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnNoteWrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/btnAdd"
+            app:layout_constraintEnd_toEndOf="@id/btnAdd"
+            app:layout_constraintStart_toStartOf="@id/btnAdd"
+            app:layout_constraintTop_toTopOf="@id/btnAdd">
+
+            <ImageView
+                android:id="@+id/btnAddNoteMini"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/fab_mini"
+                android:src="@drawable/ic_note"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="16dp"
+                android:elevation="30dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnEventWrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/btnAdd"
+            app:layout_constraintEnd_toEndOf="@id/btnAdd"
+            app:layout_constraintStart_toStartOf="@id/btnAdd"
+            app:layout_constraintTop_toTopOf="@id/btnAdd">
+
+            <ImageView
+                android:id="@+id/btnAddEventMini"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/fab_mini"
+                android:src="@drawable/ic_event"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="16dp"
+                android:elevation="30dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
